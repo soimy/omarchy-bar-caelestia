@@ -4,6 +4,8 @@
 
 A custom bar saved from the `~/.config/omarchy/plugins/sym.bar` currently in use on this machine, built on Omarchy's built-in Quickshell bar. It is not a standalone shell and not an official Caelestia project; it depends on the installed Omarchy Shell, its shared QML modules, and built-in components.
 
+![The bar with its desktop frame in use on workspace 2: nvim, btop, and cliamp tiled inside the frame](docs/images/desktop-2.png)
+
 ## Current appearance
 
 - A left-edge bar, joined to the 6px same-color outer frame along the top, right, and bottom edges.

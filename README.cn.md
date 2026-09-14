@@ -4,6 +4,8 @@
 
 从本机正在使用的 `~/.config/omarchy/plugins/sym.bar` 保存的自定义 bar，基于 Omarchy 内置 Quickshell bar。它不是独立 shell，也不是 Caelestia 官方项目；依赖已安装的 Omarchy Shell、共享 QML 模块及内置组件。
 
+![桌面 2 实际效果：nvim、btop、cliamp 平铺在 bar 与桌面外框内](docs/images/desktop-2.png)
+
 ## 当前外观
 
 - 左侧贴边 bar，与顶部、右侧、底部 6px 同色外框相连。
