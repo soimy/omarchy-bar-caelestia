@@ -16,21 +16,39 @@ A custom bar saved from the `~/.config/omarchy/plugins/sym.bar` currently in use
 
 ## Files
 
-- `plugin/`: complete code of the currently running plugin, keeping the plugin ID `sym.bar` and the upstream author information.
+The repository root **is** the plugin folder, so `omarchy plugin add` can install it as-is:
+
+- `manifest.json`, `Bar.qml`, `BarModel.js`, `indicators/`, `widgets/`: the complete plugin. The plugin ID is `sym.bar`; `omarchy.clonedFrom` in the manifest records the upstream plugin it was cloned from.
 - `config/bar.json`: current bar configuration and component layout; merge its `bar` field.
 - `config/looknfeel.lua`: Hyprland look-and-feel snippet matching the frame.
 - `docs/upstream-bar.md`: upstream bar documentation kept from the clone, describing the default implementation; some paths and default behaviors do not apply to this project.
+- `LICENSE`: MIT, including the upstream Omarchy notice.
 
-## Install or sync changes
+## Install
 
 Back up the target machine's existing `~/.config/omarchy/shell.json`, `~/.config/hypr/looknfeel.lua`, and `~/.config/omarchy/plugins/sym.bar/` first.
 
-1. Copy the contents of `plugin/` into `~/.config/omarchy/plugins/sym.bar/`.
-2. Merge the `bar` field of `config/bar.json` into `~/.config/omarchy/shell.json`, keeping the other settings in that file. You can keep your own component layout and adopt only this project's style fields and `id`.
-3. Merge `config/looknfeel.lua` into `~/.config/hypr/looknfeel.lua`, making sure no later configuration overrides these values.
-4. Run `omarchy restart shell`, then `hyprctl reload` and `hyprctl configerrors`.
+Install the plugin straight from git; it lands in `~/.config/omarchy/plugins/sym.bar/`:
 
-This repository is a standalone copy; after editing it here you must copy the files to the user plugin directory for the changes to take effect. To roll back, restore the backups and restart the shell and reload Hyprland.
+```bash
+omarchy plugin add https://github.com/soimy/omarchy-bar-caelestia --enable
+```
+
+Then:
+
+1. Merge the `bar` field of `config/bar.json` into `~/.config/omarchy/shell.json`, keeping the other settings in that file. You can keep your own component layout and adopt only this project's style fields and `id`.
+2. Merge `config/looknfeel.lua` into `~/.config/hypr/looknfeel.lua`, making sure no later configuration overrides these values.
+3. Run `omarchy restart shell`, then `hyprctl reload` and `hyprctl configerrors`.
+
+### Local development
+
+This repository is a standalone copy; after editing it here, copy the tracked files into the plugin directory for the changes to take effect:
+
+```bash
+tar --exclude=.git --exclude=backups -cf - . | tar -xf - -C ~/.config/omarchy/plugins/sym.bar/
+```
+
+To roll back, restore the backups and restart the shell and reload Hyprland.
 
 ## Style parameters
 
@@ -52,3 +70,7 @@ Hyprland's `gaps_out` is 14 on the top, right, and bottom edges and 8 on the lef
 `Bar.qml` adds a separate transparent desktop decoration layer, draws the frame with a Canvas, and cuts out rounded openings; an empty input region makes it click-through. The clone also fixes an initialization compatibility issue with the host's lazily injected properties and the outer-margin calculation for bar drag coordinates.
 
 Loading, screenshot appearance, hide/restore, and the audio popup have been verified on this machine; multi-monitor and real mouse dragging are not fully verified yet. The code snapshot was taken on 2026-09-08; check shared-module compatibility after upgrading Omarchy.
+
+## License
+
+MIT — see [`LICENSE`](LICENSE). The plugin code is cloned from Omarchy's built-in `omarchy.bar` plugin, © David Heinemeier Hansson, also MIT licensed; the `omarchy.clonedFrom` field in the manifest keeps that attribution.

@@ -16,21 +16,39 @@
 
 ## 文件
 
-- `plugin/`：当前运行插件的完整代码，保留插件 ID `sym.bar` 和上游作者信息。
+仓库根目录**就是**插件目录，因此 `omarchy plugin add` 可以直接安装：
+
+- `manifest.json`、`Bar.qml`、`BarModel.js`、`indicators/`、`widgets/`：插件完整代码，插件 ID 为 `sym.bar`；manifest 里的 `omarchy.clonedFrom` 记录了克隆来源。
 - `config/bar.json`：当前 bar 配置及组件布局，合并其 `bar` 字段使用。
 - `config/looknfeel.lua`：与外框匹配的 Hyprland 外观配置片段。
 - `docs/upstream-bar.md`：克隆时保留的上游 bar 文档，描述默认实现，部分路径和默认行为不适用于本项目。
+- `LICENSE`：MIT 许可，含上游 Omarchy 的版权声明。
 
-## 安装或同步修改
+## 安装
 
 先备份目标机器现有的 `~/.config/omarchy/shell.json`、`~/.config/hypr/looknfeel.lua` 和 `~/.config/omarchy/plugins/sym.bar/`。
 
-1. 将 `plugin/` 内容复制到 `~/.config/omarchy/plugins/sym.bar/`。
-2. 将 `config/bar.json` 的 `bar` 字段合并到 `~/.config/omarchy/shell.json`，保留文件中的其他设置。可以保留自己的组件布局，只采用本项目的样式字段和 `id`。
-3. 将 `config/looknfeel.lua` 的配置合并到 `~/.config/hypr/looknfeel.lua`，避免其他配置随后覆盖这些值。
-4. 执行 `omarchy restart shell`，再执行 `hyprctl reload` 和 `hyprctl configerrors`。
+从 git 直接安装，插件会落到 `~/.config/omarchy/plugins/sym.bar/`：
 
-仓库是独立副本；编辑这里后需复制到用户插件目录才能应用。恢复时还原备份，并重启 shell、重新加载 Hyprland。
+```bash
+omarchy plugin add https://github.com/soimy/omarchy-bar-caelestia --enable
+```
+
+然后：
+
+1. 将 `config/bar.json` 的 `bar` 字段合并到 `~/.config/omarchy/shell.json`，保留文件中的其他设置。可以保留自己的组件布局，只采用本项目的样式字段和 `id`。
+2. 将 `config/looknfeel.lua` 的配置合并到 `~/.config/hypr/looknfeel.lua`，避免其他配置随后覆盖这些值。
+3. 执行 `omarchy restart shell`，再执行 `hyprctl reload` 和 `hyprctl configerrors`。
+
+### 本地开发
+
+仓库是独立副本；编辑这里后需把受版本控制的文件复制到用户插件目录才能应用：
+
+```bash
+tar --exclude=.git --exclude=backups -cf - . | tar -xf - -C ~/.config/omarchy/plugins/sym.bar/
+```
+
+恢复时还原备份，并重启 shell、重新加载 Hyprland。
 
 ## 样式参数
 
@@ -52,3 +70,7 @@ Hyprland 的 `gaps_out` 为上/右/下 14、左 8；前三边包含 6px 装饰�
 `Bar.qml` 添加独立的透明桌面装饰层，通过 Canvas 绘制外框并挖出圆角开口；空输入区域使其点击穿透。克隆还修正了宿主延迟注入属性的初始化兼容问题和 bar 拖拽坐标的外边距计算。
 
 本机已验证加载、截图外观、隐藏恢复和音频弹窗；多显示器和实际鼠标拖拽尚未完整验证。代码快照保存于 2026-09-08，Omarchy 升级后需检查共享模块兼容性。
+
+## 许可
+
+MIT，见 [`LICENSE`](LICENSE)。插件代码克隆自 Omarchy 内置的 `omarchy.bar`，版权归 © David Heinemeier Hansson，同为 MIT 许可；manifest 中的 `omarchy.clonedFrom` 保留了这一署名。
