@@ -1,11 +1,7 @@
 MIT License
 
 Copyright (c) 2026 Shen Yiming (soimy)
-
-The plugin code in this repository was cloned from Omarchy's built-in
-`omarchy.bar` plugin and is derived from Omarchy, which is licensed as follows:
-
-    Copyright (c) David Heinemeier Hansson
+Copyright (c) David Heinemeier Hansson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

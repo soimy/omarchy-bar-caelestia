@@ -22,7 +22,8 @@
 - `config/bar.json`：当前 bar 配置及组件布局，合并其 `bar` 字段使用。
 - `config/looknfeel.lua`：与外框匹配的 Hyprland 外观配置片段。
 - `docs/upstream-bar.md`：克隆时保留的上游 bar 文档，描述默认实现，部分路径和默认行为不适用于本项目。
-- `LICENSE`：MIT 许可，含上游 Omarchy 的版权声明。
+- `LICENSE`：MIT 许可正文。
+- `NOTICE`：克隆来源的署名说明。
 
 ## 安装
 
@@ -73,4 +74,4 @@ Hyprland 的 `gaps_out` 为上/右/下 14、左 8；前三边包含 6px 装饰�
 
 ## 许可
 
-MIT，见 [`LICENSE`](LICENSE)。插件代码克隆自 Omarchy 内置的 `omarchy.bar`，版权归 © David Heinemeier Hansson，同为 MIT 许可；manifest 中的 `omarchy.clonedFrom` 保留了这一署名。
+MIT，见 [`LICENSE`](LICENSE)。插件代码克隆自 Omarchy 内置的 `omarchy.bar`，版权归 © David Heinemeier Hansson，同为 MIT 许可；署名见 [`NOTICE`](NOTICE) 与 manifest 中的 `omarchy.clonedFrom`。

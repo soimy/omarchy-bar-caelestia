@@ -1,0 +1,12 @@
+Attribution notice
+==================
+
+The plugin code in this repository — `manifest.json`, `Bar.qml`, `BarModel.js`,
+`indicators/`, and `widgets/` — is cloned from Omarchy's built-in `omarchy.bar`
+plugin and modified.
+
+Upstream: Omarchy — https://github.com/basecamp/omarchy
+License:  MIT, Copyright (c) David Heinemeier Hansson
+
+The plugin manifest keeps the same attribution in its `omarchy.clonedFrom`
+field.

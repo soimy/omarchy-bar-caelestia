@@ -22,7 +22,8 @@ The repository root **is** the plugin folder, so `omarchy plugin add` can instal
 - `config/bar.json`: current bar configuration and component layout; merge its `bar` field.
 - `config/looknfeel.lua`: Hyprland look-and-feel snippet matching the frame.
 - `docs/upstream-bar.md`: upstream bar documentation kept from the clone, describing the default implementation; some paths and default behaviors do not apply to this project.
-- `LICENSE`: MIT, including the upstream Omarchy notice.
+- `LICENSE`: MIT license text.
+- `NOTICE`: attribution for the upstream plugin this code was cloned from.
 
 ## Install
 
@@ -73,4 +74,4 @@ Loading, screenshot appearance, hide/restore, and the audio popup have been veri
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE). The plugin code is cloned from Omarchy's built-in `omarchy.bar` plugin, © David Heinemeier Hansson, also MIT licensed; the `omarchy.clonedFrom` field in the manifest keeps that attribution.
+MIT — see [`LICENSE`](LICENSE). The plugin code is cloned from Omarchy's built-in `omarchy.bar` plugin, © David Heinemeier Hansson, also MIT licensed; see [`NOTICE`](NOTICE) and the `omarchy.clonedFrom` field in the manifest for that attribution.
