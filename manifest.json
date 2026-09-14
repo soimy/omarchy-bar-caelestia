@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "id": "sym.bar",
-  "name": "My Bar",
+  "name": "Caelestia-style Bar",
   "version": "1.0.0",
-  "author": "Omarchy",
-  "description": "Status bar with widgets",
+  "author": "soimy",
+  "description": "Left bar joined to a hollow 6px desktop frame with 22px inverted corners",
   "kinds": [
     "bar"
   ],
